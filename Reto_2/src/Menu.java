@@ -1,3 +1,4 @@
+import emergencia.*;
 import java.util.Scanner;
 
 public class Menu {
@@ -11,23 +12,41 @@ public class Menu {
         System.out.println("3. accidente de transito");
     }
 
-    public String SeleccionEmergencia (){
-
+    public TipoEmergencia SeleccionEmergencia() {
         Scanner scn = new Scanner(System.in);
-        System.out.println("Seleccione la emergencia que presenta:");
-        System.out.println("1. Incendio");
-        System.out.println("2. Robo");
-        System.out.println("3. accidente de transito");
-        String tipo = scn.nextLine();
-        return tipo;
-
+        int opcion = 0;
+    
+        while (true) {
+            System.out.println("Seleccione la emergencia que presenta:");
+            System.out.println("1. Incendio");
+            System.out.println("2. Robo");
+            System.out.println("3. Accidente de tránsito");
+    
+            try {
+                opcion = Integer.parseInt(scn.nextLine());
+    
+                switch (opcion) {
+                    case 1:
+                        return TipoEmergencia.Incendio;
+                    case 2:
+                        return TipoEmergencia.Robo;
+                    case 3:
+                        return TipoEmergencia.Accidente_Transito;
+                    default:
+                        System.out.println("Opción inválida. Intente nuevamente.\n");
+                }
+            } catch (NumberFormatException e) {
+                System.out.println("Entrada no válida. Ingrese un número del 1 al 3.\n");
+            }
+        }
     }
 
     public void MenuRegistrarEmergencia (){
-       
+
+       //menu de registro de emergencia
         Scanner scn = new Scanner(System.in);
         System.out.println("Registro de nueva emergencia");
-        String tipo = SeleccionEmergencia();
+        TipoEmergencia tipo = SeleccionEmergencia();
         System.out.println("Ubicacion de la emergencia");
         String ubicacion = scn.nextLine();
         System.out.println("Nivel de gravedad");

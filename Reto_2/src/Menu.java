@@ -56,7 +56,7 @@ public class Menu {
         Emergencia emergencia = new Emergencia(tipo,ubicacion,nivelGravedad,tiempo);
     }
 
-    public void MenuConfiguracion (){
+    public static void MenuConfiguracion (){
 
         //Menu de inicial de configuracion
         Scanner scn = new Scanner(System.in);

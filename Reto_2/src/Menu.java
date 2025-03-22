@@ -3,6 +3,7 @@ import java.util.Scanner;
 public class Menu {
 
     public void MenuPrincipal (){
+        
         System.out.println("Bienvenidos al Sistema de Emergencias");
         System.out.println("Seleccione la emergencia que presenta:");
         System.out.println("1. Incendio");
@@ -10,13 +11,53 @@ public class Menu {
         System.out.println("3. accidente de transito");
     }
 
-    public void MenuEspecificacionesEmergencia(){
+    public String SeleccionEmergencia (){
+
         Scanner scn = new Scanner(System.in);
+        System.out.println("Seleccione la emergencia que presenta:");
+        System.out.println("1. Incendio");
+        System.out.println("2. Robo");
+        System.out.println("3. accidente de transito");
+        String tipo = scn.nextLine();
+        return tipo;
+
+    }
+
+    public void MenuRegistrarEmergencia (){
+       
+        Scanner scn = new Scanner(System.in);
+        System.out.println("Registro de nueva emergencia");
+        String tipo = SeleccionEmergencia();
         System.out.println("Ubicacion de la emergencia");
         String ubicacion = scn.nextLine();
         System.out.println("Nivel de gravedad");
         String nivelGravedad = scn.nextLine();
         System.out.println("Tiempo estimado de la atencion inicial");
         String tiempo = scn.nextLine();
+        Emergencia emergencia = new Emergencia(tipo,ubicacion,nivelGravedad,tiempo);
     }
+
+    public void MenuConfiguracion (){
+
+        //Menu de inicial de configuracion
+        Scanner scn = new Scanner(System.in);
+        System.out.println("Bienvenido al menu de configuracion");
+        System.out.println("Debemos agregar la configuracion");
+        System.out.println("inicial del programa.");
+        System.out.println("ingresa el numero de vehiculos policiales:");
+        int vPolicia = scn.nextInt();
+        System.out.println("ingrese el numero de agentes de policia:");
+        int nPolicias = scn.nextInt();
+        System.out.println("ingresar el numero de vehiculos de ambulancias:");
+        int vAmbulancias = scn.nextInt();
+        System.out.println("ingresa el numero de paramedico:");
+        int nParamedicos = scn.nextInt();
+        System.out.println("ingresa en numero de maquinas de bomberos:");
+        int vBomberos = scn.nextInt();
+        System.out.println("ingresa el numero de bomberos:");
+        int nBomberos = scn.nextInt();
+        Config.getInstancia(vPolicia,nPolicias,vAmbulancias,nParamedicos,vBomberos,nBomberos);
+
+    }
+
 }

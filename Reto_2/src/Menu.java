@@ -12,7 +12,7 @@ public class Menu {
         System.out.println("3. accidente de transito");
     }
 
-    public TipoEmergencia SeleccionEmergencia() {
+    private static TipoEmergencia SeleccionEmergencia() {
         Scanner scn = new Scanner(System.in);
         int opcion = 0;
     
@@ -41,7 +41,7 @@ public class Menu {
         }
     }
 
-    public void MenuRegistrarEmergencia (){
+    public static void MenuRegistrarEmergencia (){
 
        //menu de registro de emergencia
         Scanner scn = new Scanner(System.in);
@@ -54,6 +54,8 @@ public class Menu {
         System.out.println("Tiempo estimado de la atencion inicial");
         String tiempo = scn.nextLine();
         Emergencia emergencia = new Emergencia(tipo,ubicacion,nivelGravedad,tiempo);
+        
+    
     }
 
     public static Config MenuConfiguracion (){

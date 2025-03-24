@@ -56,7 +56,7 @@ public class Menu {
         Emergencia emergencia = new Emergencia(tipo,ubicacion,nivelGravedad,tiempo);
     }
 
-    public static void MenuConfiguracion (){
+    public static Config MenuConfiguracion (){
 
         //Menu de inicial de configuracion
         Scanner scn = new Scanner(System.in);
@@ -75,7 +75,7 @@ public class Menu {
         int vBomberos = scn.nextInt();
         System.out.println("ingresa el numero de bomberos:");
         int nBomberos = scn.nextInt();
-        Config.getInstancia(vPolicia,nPolicias,vAmbulancias,nParamedicos,vBomberos,nBomberos);
+        return Config.getInstancia(vPolicia,nPolicias,vAmbulancias,nParamedicos,vBomberos,nBomberos);
 
     }
 

@@ -29,6 +29,17 @@ public class Config {
         return configuracion;
     }
 
+    public static void imprimirConfiguracion(Config config) {
+        System.out.println("----- CONFIGURACIÓN ACTUAL -----");
+        System.out.println("Vehículos de Policía     : " + config.getVehiculosPolicia());
+        System.out.println("Vehículos de Ambulancias : " + config.getVehiculosAmbulancias());
+        System.out.println("Vehículos de Bomberos    : " + config.getVehiculosBomberos());
+        System.out.println("Número de Policías       : " + config.getNumeroPolicias());
+        System.out.println("Número de Paramédicos    : " + config.getNumeroParamedico());
+        System.out.println("Número de Bomberos       : " + config.getNumeroBomberos());
+        System.out.println("--------------------------------");
+    }
+
     public int getVehiculosPolicia() {
         return vehiculosPolicia;
     }

@@ -1,10 +1,14 @@
+import emergencia.Emergencia;
+
 public class App {
     
     public static void main(String[] args) throws Exception {
         
-        Config config = Menu.MenuConfiguracion();
-        Config.imprimirConfiguracion(config);
+        Menu.MenuRegistrarEmergencia();
+        Menu.MenuRegistrarEmergencia();
+        Menu.MenuRegistrarEmergencia();
         
-        Menu.MenuConfiguracion();
+        Emergencia.ImprimirListaEmergencias();
+        
     }
 }

@@ -72,6 +72,5 @@ public class Menu {
         String nivelGravedad = scn.nextLine();
         System.out.println("Tiempo estimado de la atencion inicial");
         String tiempo = scn.nextLine();
-        Emergencia emergencia = new Emergencia(tipo,ubicacion,nivelGravedad,tiempo);  
     }
 }

@@ -1,9 +1,21 @@
 package emergencia;
 
-public class AccidenteTransito extends Emergencia{
+public class AccidenteTransito implements Emergencia{
 
-    public AccidenteTransito (TipoEmergencia tipo,String ubicacion, String nivelGravedad, String tiempoRespuesta) {
+    private String descripcion;
+    private String ubicacion;
+    private String nivelGravedad;
 
-        super (tipo, ubicacion, nivelGravedad, tiempoRespuesta);
+    public AccidenteTransito(String descripcion,String ubicacion,String nivelGravedad) {
+        this.descripcion = descripcion;
+        this.ubicacion =  ubicacion;
+        this.nivelGravedad = nivelGravedad;
+    }
+
+    @Override
+    public void atender() {
+        System.out.println("Atendiendo incendio: " + descripcion);
+        System.out.println("Ubicacion" + ubicacion);
+        System.out.println("Nivel de gravedad" + nivelGravedad);
     }
 }

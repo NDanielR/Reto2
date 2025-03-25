@@ -3,8 +3,28 @@ import java.util.Scanner;
 
 public class Menu {
 
+    public static Config MenuConfiguracion (){
+        //Menu de inicial de configuracion
+        Scanner scn = new Scanner(System.in);
+        System.out.println("Bienvenido al menu de configuracion");
+        System.out.println("Debemos agregar la configuracion");
+        System.out.println("inicial del programa.");
+        System.out.println("ingresa el numero de vehiculos policiales:");
+        int vPolicia = scn.nextInt();
+        System.out.println("ingrese el numero de agentes de policia:");
+        int nPolicias = scn.nextInt();
+        System.out.println("ingresar el numero de vehiculos de ambulancias:");
+        int vAmbulancias = scn.nextInt();
+        System.out.println("ingresa el numero de paramedico:");
+        int nParamedicos = scn.nextInt();
+        System.out.println("ingresa en numero de maquinas de bomberos:");
+        int vBomberos = scn.nextInt();
+        System.out.println("ingresa el numero de bomberos:");
+        int nBomberos = scn.nextInt();
+        return Config.getInstancia(vPolicia,nPolicias,vAmbulancias,nParamedicos,vBomberos,nBomberos);
+    }
+
     public void MenuPrincipal (){
-        
         System.out.println("Bienvenidos al Sistema de Emergencias");
         System.out.println("Seleccione la emergencia que presenta:");
         System.out.println("1. Incendio");
@@ -42,7 +62,6 @@ public class Menu {
     }
 
     public static void MenuRegistrarEmergencia (){
-
        //menu de registro de emergencia
         Scanner scn = new Scanner(System.in);
         System.out.println("Registro de nueva emergencia");
@@ -53,32 +72,6 @@ public class Menu {
         String nivelGravedad = scn.nextLine();
         System.out.println("Tiempo estimado de la atencion inicial");
         String tiempo = scn.nextLine();
-        Emergencia emergencia = new Emergencia(tipo,ubicacion,nivelGravedad,tiempo);
-        
-    
+        Emergencia emergencia = new Emergencia(tipo,ubicacion,nivelGravedad,tiempo);  
     }
-
-    public static Config MenuConfiguracion (){
-
-        //Menu de inicial de configuracion
-        Scanner scn = new Scanner(System.in);
-        System.out.println("Bienvenido al menu de configuracion");
-        System.out.println("Debemos agregar la configuracion");
-        System.out.println("inicial del programa.");
-        System.out.println("ingresa el numero de vehiculos policiales:");
-        int vPolicia = scn.nextInt();
-        System.out.println("ingrese el numero de agentes de policia:");
-        int nPolicias = scn.nextInt();
-        System.out.println("ingresar el numero de vehiculos de ambulancias:");
-        int vAmbulancias = scn.nextInt();
-        System.out.println("ingresa el numero de paramedico:");
-        int nParamedicos = scn.nextInt();
-        System.out.println("ingresa en numero de maquinas de bomberos:");
-        int vBomberos = scn.nextInt();
-        System.out.println("ingresa el numero de bomberos:");
-        int nBomberos = scn.nextInt();
-        return Config.getInstancia(vPolicia,nPolicias,vAmbulancias,nParamedicos,vBomberos,nBomberos);
-
-    }
-
 }

@@ -1,9 +1,21 @@
 package emergencia;
 
-public class Robo extends Emergencia{
+public class Robo implements Emergencia{
 
-    public Robo (TipoEmergencia tipo,String ubicacion, String nivelGravedad, String tiempoRespuesta) {
+    private String descripcion;
+    private String ubicacion;
+    private String nivelGravedad;
 
-        super (tipo, ubicacion, nivelGravedad, tiempoRespuesta);
+    public Robo(String descripcion,String ubicacion,String nivelGravedad) {
+        this.descripcion = descripcion;
+        this.ubicacion =  ubicacion;
+        this.nivelGravedad = nivelGravedad;
+    }
+
+    @Override
+    public void atender() {
+        System.out.println("Atendiendo Robo: " + descripcion);
+        System.out.println("Ubicacion" + ubicacion);
+        System.out.println("Nivel de gravedad" + nivelGravedad);
     }
 }

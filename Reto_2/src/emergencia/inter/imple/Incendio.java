@@ -20,7 +20,7 @@ public class Incendio implements InEmergencia{
         
         while (true) {
             System.out.println("Hay personas atrapadas en el incendio (si/no): ");
-            String entrada = scanner.nextLine().toLowerCase().trim(); // Normalize input to lowercase before trimming
+            String entrada = scanner.nextLine().toLowerCase().trim(); 
             if (entrada.equals("si")) {
                 this.personasAtrapadas = true;
                 break;

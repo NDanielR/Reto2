@@ -1,4 +1,4 @@
-package emergencia;
+package emergencia.inter.imple;
 
 
 public enum TipoEmergencia {

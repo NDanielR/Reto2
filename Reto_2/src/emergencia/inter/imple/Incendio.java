@@ -16,9 +16,21 @@ public class Incendio implements InEmergencia{
         System.out.println("Ingrese la ubicacion del incendio: ");
         this.ubicacion = scanner.nextLine();
         System.out.println("Ingrese la descripcion del incendio: ");
-        this.descripcion = scanner.nextLine(); 
-        System.out.println("Hay personas atrapadas en el incendio: ");
-        this.personasAtrapadas = scanner.nextBoolean();
+        this.descripcion = scanner.nextLine();
+        
+        while (true) {
+            System.out.println("Hay personas atrapadas en el incendio (si/no): ");
+            String entrada = scanner.nextLine().toLowerCase().trim(); // Normalize input to lowercase before trimming
+            if (entrada.equals("si")) {
+                this.personasAtrapadas = true;
+                break;
+            } else if (entrada.equals("no")) {
+                this.personasAtrapadas = false;
+                break;
+            } else {
+                System.out.println("Entrada no válida. Por favor, ingrese 'si' o 'no'.");
+            }
+        }
     }
 
     @Override

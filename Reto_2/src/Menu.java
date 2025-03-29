@@ -1,4 +1,3 @@
-import emergencia.*;
 import emergencia.inter.imple.TipoEmergencia;
 
 import java.util.Scanner;

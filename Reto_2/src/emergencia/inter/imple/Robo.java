@@ -13,24 +13,25 @@ public class Robo implements InEmergencia{
     private boolean atracoViolento;
     private boolean personasHeridas;
     private boolean personasFallecidas;
-    private String nivelGravedad;
+    //private String nivelGravedad;
 
     public Robo() {
-        Scanner scanner = new Scanner(System.in);
+        Scanner scn = new Scanner(System.in);
         System.out.println("Ingrese la ubicacion del Robo: ");
-        this.ubicacion = scanner.nextLine();
+        this.ubicacion = scn.nextLine();
         System.out.println("Ingrese la descripcion del Robo: ");
-        this.descripcion = scanner.nextLine();
+        this.descripcion = scn.nextLine();
         System.out.println("El robo fue con arma de fuego: ");
-        this.atracoArmaFuego = scanner.nextBoolean();
+        this.atracoArmaFuego = scn.nextBoolean();
         System.out.println("El robo fue con arma blanca: ");
-        this.atracoArmaBlanca = scanner.nextBoolean();
+        this.atracoArmaBlanca = scn.nextBoolean();
         System.out.println("El robo fue violento: ");
-        this.atracoViolento = scanner.nextBoolean();
+        this.atracoViolento = scn.nextBoolean();
         System.out.println("Hay personas heridas en el robo: ");
-        this.personasHeridas = scanner.nextBoolean();
+        this.personasHeridas = scn.nextBoolean();
         System.out.println("Hay personas fallecidas en el robo: ");
-        this.personasFallecidas = scanner.nextBoolean();
+        this.personasFallecidas = scn.nextBoolean();
+        scn.close();
     }
 
     @Override

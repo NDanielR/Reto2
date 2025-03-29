@@ -11,20 +11,21 @@ public class AccidenteTransito implements InEmergencia{
     private boolean personasAtrapadas;
     private boolean personasHeridas;
     private boolean personasFallecidas;
-    private String nivelGravedad;
+    //private String nivelGravedad;
 
     public AccidenteTransito() {
-       Scanner scanner = new Scanner(System.in);
+       Scanner scn = new Scanner(System.in);
         System.out.println("Ingrese la ubicacion del Acidente de transito: ");
-        this.ubicacion = scanner.nextLine();
+        this.ubicacion = scn.nextLine();
         System.out.println("Ingrese la descripcion del Accidente de transito: ");
-        this.descripcion = scanner.nextLine(); 
+        this.descripcion = scn.nextLine(); 
         System.out.println("Hay personas atrapadas en el Accidente: ");
-        this.personasAtrapadas = scanner.nextBoolean();
+        this.personasAtrapadas = scn.nextBoolean();
         System.out.println("Hay personas heridas en el Accidente: ");
-        this.personasHeridas = scanner.nextBoolean();
+        this.personasHeridas = scn.nextBoolean();
         System.out.println("Hay personas fallecidas en el Accidente: ");
-        this.personasFallecidas = scanner.nextBoolean();
+        this.personasFallecidas = scn.nextBoolean();
+        scn.close();
     }
 
     @Override

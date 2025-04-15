@@ -1,30 +1,25 @@
 package emergencia.inter.imple;
 
-import java.util.Scanner;
+import java.time.Duration;
 
+import emergencia.Emergencia;
 import emergencia.inter.InEmergencia;
+import util.GravedadEmergencia;
+import util.TipoEmergencia;
 
-public class AccidenteTransito implements InEmergencia{
+public class AccidenteTransito extends Emergencia implements InEmergencia{
 
-    private String ubicacion;
     private String descripcion;
     private boolean personasAtrapadas;
     private boolean personasHeridas;
     private boolean personasFallecidas;
-    private String nivelGravedad;
 
-    public AccidenteTransito() {
-       Scanner scanner = new Scanner(System.in);
-        System.out.println("Ingrese la ubicacion del Acidente de transito: ");
-        this.ubicacion = scanner.nextLine();
-        System.out.println("Ingrese la descripcion del Accidente de transito: ");
-        this.descripcion = scanner.nextLine(); 
-        System.out.println("Hay personas atrapadas en el Accidente: ");
-        this.personasAtrapadas = scanner.nextBoolean();
-        System.out.println("Hay personas heridas en el Accidente: ");
-        this.personasHeridas = scanner.nextBoolean();
-        System.out.println("Hay personas fallecidas en el Accidente: ");
-        this.personasFallecidas = scanner.nextBoolean();
+    public AccidenteTransito(TipoEmergencia tipoEmergencia, String ubicacion, GravedadEmergencia nivelDeGravedad, Duration tiempoRespuesta, String descripcion, boolean personasAtrapadas, boolean personasHeridas, boolean personasFallecidas) {
+     super(tipoEmergencia, ubicacion, nivelDeGravedad, tiempoRespuesta);
+     this.descripcion = descripcion;
+     this.personasAtrapadas = personasAtrapadas;
+     this.personasHeridas = personasHeridas;
+     this.personasFallecidas = personasFallecidas;
     }
 
     @Override
@@ -35,9 +30,9 @@ public class AccidenteTransito implements InEmergencia{
     @Override
     public void verDatosEmergencia() {
         System.out.println("Atendiendo Accidente de transito: " + descripcion);
-        System.out.println("Ubicacion" + ubicacion);
-        System.out.println("Personas atrapadas: " + personasAtrapadas);
-        System.out.println("Personas heridas: " + personasHeridas);
-        System.out.println("Personas fallecidas: " + personasFallecidas);
+        System.out.println("Ubicacion: " + getUbicacion());
+        System.out.println(personasAtrapadas ? "Hay personas atrapadas" : "No hay personas atrapadas");
+        System.out.println(personasHeridas ? "Hay personas heridas" : "No hay personas heridas");
+        System.out.println(personasFallecidas ? "Hay personas fallecidas" : "No hay personas fallecidas");
     }
 }

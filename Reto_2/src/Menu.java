@@ -25,8 +25,10 @@ public class Menu {
             System.out.println("2. Robo");
             System.out.println("3. Accidente de tránsito");
 
+
             try {
                 opcion = Integer.parseInt(scn.nextLine());
+
 
                 switch (opcion) {
                     case 1:

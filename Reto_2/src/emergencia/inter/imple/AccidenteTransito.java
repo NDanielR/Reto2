@@ -25,7 +25,6 @@ public class AccidenteTransito implements InEmergencia{
         this.personasHeridas = scn.nextBoolean();
         System.out.println("Hay personas fallecidas en el Accidente: ");
         this.personasFallecidas = scn.nextBoolean();
-        scn.close();
     }
 
     @Override

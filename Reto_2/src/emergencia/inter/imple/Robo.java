@@ -14,31 +14,26 @@ public class Robo implements InEmergencia {
     private boolean atracoViolento;
     private boolean personasHeridas;
     private boolean personasFallecidas;
-    //private String nivelGravedad;
+    // private String nivelGravedad;
 
-    public Robo() {
-        Scanner scn = ScannerSingleton.getInstance();
-        System.out.println("Ingrese la ubicacion del Robo: ");
-        System.out.println("Ingrese la descripcion del Robo: ");
-        System.out.println("El robo fue con arma de fuego: ");
-        this.atracoArmaFuego = scn.nextBoolean();
-        System.out.println("El robo fue con arma blanca: ");
-        this.atracoArmaBlanca = scn.nextBoolean();
-        System.out.println("El robo fue violento: ");
-        this.atracoViolento = scn.nextBoolean();
-        System.out.println("Hay personas heridas en el robo: ");
-        this.personasHeridas = scn.nextBoolean();
-        System.out.println("Hay personas fallecidas en el robo: ");
-        this.personasFallecidas = scn.nextBoolean();
-
+    public Robo(String descripcion, String ubicacion, boolean atracoArmaFuego,
+            boolean atracoArmaBlanca, boolean atracoViolento, boolean personasHeridas, boolean personasFallecidas) {
+        this.descripcion = descripcion;
+        this.ubicacion = ubicacion;
+        this.atracoArmaFuego = atracoArmaFuego;
+        this.atracoArmaBlanca = atracoArmaBlanca;
+        this.atracoViolento = atracoViolento;
+        this.personasHeridas = personasHeridas;
+        this.personasFallecidas = personasFallecidas;
+        // this.nivelGravedad = nivelGravedad;
     }
 
     @Override
     public void registrarEmergencia() {
-        
+
     }
 
-    public void verDatosEmergencia(){
+    public void verDatosEmergencia() {
         System.out.println("Atendiendo robo: " + descripcion);
         System.out.println("Ubicacion" + ubicacion);
         System.out.println("Robo con arma de fuego: " + atracoArmaFuego);

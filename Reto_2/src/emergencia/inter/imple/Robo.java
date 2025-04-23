@@ -3,8 +3,9 @@ package emergencia.inter.imple;
 import java.util.Scanner;
 
 import emergencia.inter.InEmergencia;
+import util.ScannerSingleton;
 
-public class Robo implements InEmergencia{
+public class Robo implements InEmergencia {
 
     private String descripcion;
     private String ubicacion;
@@ -16,11 +17,9 @@ public class Robo implements InEmergencia{
     //private String nivelGravedad;
 
     public Robo() {
-        Scanner scn = new Scanner(System.in);
+        Scanner scn = ScannerSingleton.getInstance();
         System.out.println("Ingrese la ubicacion del Robo: ");
-        this.ubicacion = scn.nextLine();
         System.out.println("Ingrese la descripcion del Robo: ");
-        this.descripcion = scn.nextLine();
         System.out.println("El robo fue con arma de fuego: ");
         this.atracoArmaFuego = scn.nextBoolean();
         System.out.println("El robo fue con arma blanca: ");
@@ -31,7 +30,7 @@ public class Robo implements InEmergencia{
         this.personasHeridas = scn.nextBoolean();
         System.out.println("Hay personas fallecidas en el robo: ");
         this.personasFallecidas = scn.nextBoolean();
-        scn.close();
+
     }
 
     @Override

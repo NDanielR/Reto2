@@ -1,3 +1,7 @@
+import java.util.Scanner;
+
+import util.ScannerSingleton;
+
 public class Config {
 
     //instancia de configuracion
@@ -11,20 +15,30 @@ public class Config {
     private int numeroParamedico;
     private int numeroBomberos;
 
-    private Config(int vPolicia, int nPolicias, int vAmbulancias, int nParamedicos, int vBomberos, int nBomberos){
-        //configuracion basica inicial
-        this.vehiculosPolicia = vPolicia;
-        this.vehiculosAmbulancias = vAmbulancias;
-        this.vehiculosBomberos = vBomberos;
-        this.numeroPolicias = nPolicias;
-        this.numeroParamedico = nParamedicos;
-        this.numeroBomberos = nBomberos;
+    private Config(){
+        // Constructor privado para evitar instanciación externa
+        Scanner scn = ScannerSingleton.getInstance();
+        System.out.println("Bienvenido al menu de configuracion");
+        System.out.println("Debemos agregar la configuracion");
+        System.out.println("inicial del programa.");
+        System.out.println("ingresa el numero de vehiculos policiales:");
+        this.vehiculosPolicia = scn.nextInt();
+        System.out.println("ingrese el numero de agentes de policia:");
+        this.numeroPolicias = scn.nextInt();
+        System.out.println("ingresar el numero de vehiculos de ambulancias:");
+        this.vehiculosAmbulancias = scn.nextInt();
+        System.out.println("ingresa el numero de paramedico:");
+        this.numeroParamedico = scn.nextInt();
+        System.out.println("ingresa en numero de maquinas de bomberos:");
+        this.vehiculosBomberos = scn.nextInt();
+        System.out.println("ingresa el numero de bomberos:");
+        this.numeroBomberos = scn.nextInt();
     }
 
     //metodo static para agregar la config de inicio
-    public static Config getInstancia(int vPolicia, int nPolicias, int vAmbulancias, int nParamedicos, int vBomberos, int nBomberos) {
+    public static Config getInstancia() {
         if (configuracion == null) {
-            configuracion = new Config(vPolicia,nPolicias,vAmbulancias,nParamedicos,vBomberos,nBomberos);
+            configuracion = new Config();
         }   
         return configuracion;
     }

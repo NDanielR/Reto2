@@ -1,8 +1,8 @@
 package emergencia.inter.imple;
 
 import java.util.Scanner;
-
 import emergencia.inter.InEmergencia;
+import util.ScannerSingleton;
 
 public class AccidenteTransito implements InEmergencia{
 
@@ -14,7 +14,7 @@ public class AccidenteTransito implements InEmergencia{
     //private String nivelGravedad;
 
     public AccidenteTransito() {
-       Scanner scn = new Scanner(System.in);
+        Scanner scn = ScannerSingleton.getInstance();//new Scanner(System.in);
         System.out.println("Ingrese la ubicacion del Acidente de transito: ");
         this.ubicacion = scn.nextLine();
         System.out.println("Ingrese la descripcion del Accidente de transito: ");

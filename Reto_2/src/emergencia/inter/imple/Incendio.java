@@ -1,8 +1,8 @@
 package emergencia.inter.imple;
 
 import java.util.Scanner;
-
 import emergencia.inter.InEmergencia;
+import util.ScannerSingleton;
 
 public class Incendio implements InEmergencia{
 
@@ -12,7 +12,7 @@ public class Incendio implements InEmergencia{
     //private String nivelGravedad;
 
     public Incendio() {
-        Scanner scn = new Scanner(System.in);
+        Scanner scn = ScannerSingleton.getInstance();//new Scanner(System.in);
         try {
             System.out.println("Ingrese la ubicacion del incendio: ");
             this.ubicacion = scn.nextLine();
@@ -33,7 +33,7 @@ public class Incendio implements InEmergencia{
                 }
             }
         } finally {
-            scn.close(); // Cierra el Scanner para evitar advertencias
+            //scn.close(); // Cierra el Scanner para evitar advertencias
         }
     }
 

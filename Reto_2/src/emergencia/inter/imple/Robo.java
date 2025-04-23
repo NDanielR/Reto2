@@ -1,9 +1,6 @@
 package emergencia.inter.imple;
 
-import java.util.Scanner;
-
 import emergencia.inter.InEmergencia;
-import util.ScannerSingleton;
 
 public class Robo implements InEmergencia {
 

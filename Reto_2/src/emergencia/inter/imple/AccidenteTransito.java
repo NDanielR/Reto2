@@ -1,26 +1,16 @@
 package emergencia.inter.imple;
 
-import java.time.Duration;
-
 import emergencia.Emergencia;
 import emergencia.inter.InEmergencia;
-import util.GravedadEmergencia;
+import observer.IObserver;
 import util.TipoEmergencia;
 
-public class AccidenteTransito extends Emergencia implements InEmergencia{
+public class AccidenteTransito extends Emergencia implements InEmergencia, IObserver{
 
     private String descripcion;
     private boolean personasAtrapadas;
     private boolean personasHeridas;
     private boolean personasFallecidas;
-
-    public AccidenteTransito(TipoEmergencia tipoEmergencia, String ubicacion, GravedadEmergencia nivelDeGravedad, Duration tiempoRespuesta, String descripcion, boolean personasAtrapadas, boolean personasHeridas, boolean personasFallecidas) {
-     super(tipoEmergencia, ubicacion, nivelDeGravedad, tiempoRespuesta);
-     this.descripcion = descripcion;
-     this.personasAtrapadas = personasAtrapadas;
-     this.personasHeridas = personasHeridas;
-     this.personasFallecidas = personasFallecidas;
-    }
 
     @Override
     public void registrarEmergencia() {
@@ -35,4 +25,13 @@ public class AccidenteTransito extends Emergencia implements InEmergencia{
         System.out.println(personasHeridas ? "Hay personas heridas" : "No hay personas heridas");
         System.out.println(personasFallecidas ? "Hay personas fallecidas" : "No hay personas fallecidas");
     }
+
+    @Override
+    public void notifyObserver(String message, Emergencia datosEmergencia) {
+        if(datosEmergencia.getTipo() == TipoEmergencia.Accidente_Transito){
+            System.out.println("Ambulancia notificada: " + message);
+        }
+    }
+
+   
 }

@@ -2,9 +2,12 @@ package emergencia.inter.imple;
 
 import java.util.Scanner;
 
+import emergencia.Emergencia;
 import emergencia.inter.InEmergencia;
+import observer.IObserver;
+import util.TipoEmergencia;
 
-public class Robo implements InEmergencia{
+public class Robo implements InEmergencia, IObserver{
 
     private String descripcion;
     private String ubicacion;
@@ -13,25 +16,6 @@ public class Robo implements InEmergencia{
     private boolean atracoViolento;
     private boolean personasHeridas;
     private boolean personasFallecidas;
-    private String nivelGravedad;
-
-    public Robo() {
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("Ingrese la ubicacion del Robo: ");
-        this.ubicacion = scanner.nextLine();
-        System.out.println("Ingrese la descripcion del Robo: ");
-        this.descripcion = scanner.nextLine();
-        System.out.println("El robo fue con arma de fuego: ");
-        this.atracoArmaFuego = scanner.nextBoolean();
-        System.out.println("El robo fue con arma blanca: ");
-        this.atracoArmaBlanca = scanner.nextBoolean();
-        System.out.println("El robo fue violento: ");
-        this.atracoViolento = scanner.nextBoolean();
-        System.out.println("Hay personas heridas en el robo: ");
-        this.personasHeridas = scanner.nextBoolean();
-        System.out.println("Hay personas fallecidas en el robo: ");
-        this.personasFallecidas = scanner.nextBoolean();
-    }
 
     @Override
     public void registrarEmergencia() {
@@ -46,5 +30,12 @@ public class Robo implements InEmergencia{
         System.out.println("Robo violento: " + atracoViolento);
         System.out.println("Personas heridas: " + personasHeridas);
         System.out.println("Personas fallecidas: " + personasFallecidas);
+    }
+
+    @Override
+    public void notifyObserver(String message, Emergencia datosEmergencia) {
+        if(datosEmergencia.getTipo() == TipoEmergencia.Robo){
+            System.out.println("Policía notificada: " + message);
+        }
     }
 }

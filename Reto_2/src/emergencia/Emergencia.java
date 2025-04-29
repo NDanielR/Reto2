@@ -5,25 +5,20 @@ import java.time.Duration;
 import util.GravedadEmergencia;
 import util.TipoEmergencia;
 
-public class Emergencia {
-    TipoEmergencia tipo;
-    String ubicacion;
-    GravedadEmergencia nivelDeGravedad;
-    Duration tiempoRespuesta;
 
-    public Emergencia(TipoEmergencia tipoEmergencia, String ubicacion, GravedadEmergencia nivelDeGravedad, Duration tiempoRespuesta){
-        this.tipo = tipoEmergencia;
-        this.ubicacion = ubicacion;
-        this.nivelDeGravedad = nivelDeGravedad;
-        this.tiempoRespuesta = tiempoRespuesta;
-    }
+public class Emergencia  {
+    private TipoEmergencia tipoEmergencia;
+    private String ubicacionEmergencia;
+    private GravedadEmergencia nivelDeGravedad;
+    private Duration tiempoRespuesta;
+
 
     public TipoEmergencia getTipo() {
-        return tipo;
+        return tipoEmergencia;
     }
 
     public String getUbicacion() {
-        return ubicacion;
+        return ubicacionEmergencia;
     }
 
     public GravedadEmergencia getNivelDeGravedad() {
@@ -34,6 +29,20 @@ public class Emergencia {
         return tiempoRespuesta;
     }
 
-    
-    
+    public void setTipo(TipoEmergencia tipo) {
+        this.tipoEmergencia = tipo;
+    }
+
+    public void setUbicacion(String ubicacion) {
+        this.ubicacionEmergencia = ubicacion;
+    }
+
+    public void setNivelDeGravedad(GravedadEmergencia nivelDeGravedad) {
+        this.nivelDeGravedad = nivelDeGravedad;
+    }
+
+    public void setTiempoRespuesta(Duration tiempoRespuesta) {
+        this.tiempoRespuesta = tiempoRespuesta;
+    }
+
 }

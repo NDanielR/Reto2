@@ -16,7 +16,10 @@ public class Config {
     private int numeroBomberos;
 
     private Config(){
-        // Constructor privado para evitar instanciación externa
+        inicializarConfiguracion();
+    }
+
+    public void inicializarConfiguracion() {
         Scanner scn = ScannerSingleton.getInstance();
         System.out.println("Bienvenido al menu de configuracion");
         System.out.println("Debemos agregar la configuracion");

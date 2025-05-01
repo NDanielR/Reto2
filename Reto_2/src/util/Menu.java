@@ -1,6 +1,6 @@
+package util;
 import java.util.Scanner;
 import emergencia.inter.imple.TipoEmergencia;
-import util.ScannerSingleton;
 
 public class Menu {
 

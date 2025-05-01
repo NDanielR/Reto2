@@ -1,6 +1,5 @@
+package util;
 import java.util.Scanner;
-
-import util.ScannerSingleton;
 
 public class Config {
 

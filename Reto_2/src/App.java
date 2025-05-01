@@ -1,6 +1,8 @@
 import emergencia.*;
 import emergencia.inter.InEmergencia;
 //import util.ScannerSingleton;
+import util.Config;
+import util.Menu;
 
 public class App {
     

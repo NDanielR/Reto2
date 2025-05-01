@@ -15,61 +15,71 @@ public class EmergenciaFactory {
         Scanner scn = ScannerSingleton.getInstance();
         switch (tipo) {
             case Incendio:
-                // Scanner scn = ScannerSingleton.getInstance();// new Scanner(System.in);
-                System.out.println("Ingrese la ubicacion del incendio: ");
-                String ubicacion = scn.nextLine();
-                System.out.println("Ingrese la descripcion del incendio: ");
-                String descripcion = scn.nextLine();
-                boolean personasAtrapadasIncendio = false;
-
-                while (true) {
-                    System.out.println("Hay personas atrapadas en el incendio (si/no): ");
-                    String entrada = scn.nextLine().toLowerCase().trim();
-                    if (entrada.equals("si")) {
-                        personasAtrapadasIncendio = true;
-                        break;
-                    } else if (entrada.equals("no")) {
-                        personasAtrapadasIncendio = false;
-                        break;
-                    } else {
-                        System.out.println("Entrada no válida. Por favor, ingrese 'si' o 'no'.");
-                    }
-                }
-                return new Incendio(ubicacion, descripcion, personasAtrapadasIncendio);
+                return crearIncendio(scn);
 
             case Robo:
-                // Scanner scn = ScannerSingleton.getInstance();
-                System.out.println("Ingrese la ubicacion del Robo: ");
-                String ubicacionRobo = scn.nextLine();
-                System.out.println("Ingrese la descripcion del Robo: ");
-                String descripcionRobo = scn.nextLine();
-                System.out.println("El robo fue con arma de fuego: ");
-                boolean atracoArmaFuego = scn.nextBoolean();
-                System.out.println("El robo fue con arma blanca: ");
-                boolean atracoArmaBlanca = scn.nextBoolean();
-                System.out.println("El robo fue violento: ");
-                boolean atracoViolento = scn.nextBoolean();
-                System.out.println("Hay personas heridas en el robo: ");
-                boolean personasHeridas = scn.nextBoolean();
-                System.out.println("Hay personas fallecidas en el robo: ");
-                boolean personasFallecidas = scn.nextBoolean();
-                return new Robo(ubicacionRobo, descripcionRobo, atracoArmaFuego,
-                        atracoArmaBlanca, atracoViolento, personasHeridas, personasFallecidas);
+                return crearRobo(scn);
+
             case Accidente_Transito:
-                System.out.println("Ingrese la ubicacion del Acidente de transito: ");
-                String ubicacionAccidente = scn.nextLine();
-                System.out.println("Ingrese la descripcion del Accidente de transito: ");
-                String descripcionAccidente = scn.nextLine();
-                System.out.println("Hay personas atrapadas en el Accidente: ");
-                boolean personasAtrapadasAccidente = scn.nextBoolean();
-                System.out.println("Hay personas heridas en el Accidente: ");
-                boolean personasHeridasAccidente = scn.nextBoolean();
-                System.out.println("Hay personas fallecidas en el Accidente: ");
-                boolean personasFallecidasAccidente = scn.nextBoolean();
-                return new AccidenteTransito(ubicacionAccidente, descripcionAccidente,
-                        personasAtrapadasAccidente, personasHeridasAccidente, personasFallecidasAccidente); 
+                return crearAccidenteTransito(scn);
+
             default:
                 throw new IllegalArgumentException("Tipo de emergencia no válido");
         }
     }
+
+    private static Incendio crearIncendio(Scanner scn) {
+        System.out.println("Ingrese la ubicacion del incendio: ");
+        String ubicacion = scn.nextLine();
+        System.out.println("Ingrese la descripcion del incendio: ");
+        String descripcion = scn.nextLine();
+        boolean personasAtrapadasIncendio = false;
+
+        while (true) {
+            System.out.println("Hay personas atrapadas en el incendio (si/no): ");
+            String entrada = scn.nextLine().toLowerCase().trim();
+            if (entrada.equals("si")) {
+                personasAtrapadasIncendio = true;
+                break;
+            } else if (entrada.equals("no")) {
+                personasAtrapadasIncendio = false;
+                break;
+            } else {
+                System.out.println("Entrada no válida. Por favor, ingrese 'si' o 'no'.");
+            }
+        }
+        return new Incendio(ubicacion, descripcion, personasAtrapadasIncendio);
+    }
+
+    private static Robo crearRobo(Scanner scn) {
+        System.out.println("Ingrese la ubicacion del Robo: ");
+        String ubicacionRobo = scn.nextLine();
+        System.out.println("Ingrese la descripcion del Robo: ");
+        String descripcionRobo = scn.nextLine();
+        System.out.println("El robo fue con arma de fuego: ");
+        boolean atracoArmaFuego = scn.nextBoolean();
+        System.out.println("El robo fue con arma blanca: ");
+        boolean atracoArmaBlanca = scn.nextBoolean();
+        System.out.println("El robo fue violento: ");
+        boolean atracoViolento = scn.nextBoolean();
+        System.out.println("Hay personas heridas en el robo: ");
+        boolean personasHeridas = scn.nextBoolean();
+        System.out.println("Hay personas fallecidas en el robo: ");
+        boolean personasFallecidas = scn.nextBoolean();
+        return new Robo(ubicacionRobo, descripcionRobo, atracoArmaFuego, atracoArmaBlanca, atracoViolento, personasHeridas, personasFallecidas);
+    }
+
+    private static AccidenteTransito crearAccidenteTransito(Scanner scn) {
+        System.out.println("Ingrese la ubicacion del Accidente de transito: ");
+        String ubicacionAccidente = scn.nextLine();
+        System.out.println("Ingrese la descripcion del Accidente de transito: ");
+        String descripcionAccidente = scn.nextLine();
+        System.out.println("Hay personas atrapadas en el Accidente: ");
+        boolean personasAtrapadasAccidente = scn.nextBoolean();
+        System.out.println("Hay personas heridas en el Accidente: ");
+        boolean personasHeridasAccidente = scn.nextBoolean();
+        System.out.println("Hay personas fallecidas en el Accidente: ");
+        boolean personasFallecidasAccidente = scn.nextBoolean();
+        return new AccidenteTransito(ubicacionAccidente, descripcionAccidente, personasAtrapadasAccidente, personasHeridasAccidente, personasFallecidasAccidente);
+    }  
 }

@@ -34,4 +34,44 @@ public class AccidenteTransito implements InEmergencia {
         System.out.println("Personas heridas: " + personasHeridas);
         System.out.println("Personas fallecidas: " + personasFallecidas);
     }
+
+    public String getUbicacion() {
+        return ubicacion;
+    }
+
+    public void setUbicacion(String ubicacion) {
+        this.ubicacion = ubicacion;
+    }
+
+    public String getDescripcion() {
+        return descripcion;
+    }
+
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
+    }
+
+    public boolean isPersonasAtrapadas() {
+        return personasAtrapadas;
+    }
+
+    public void setPersonasAtrapadas(boolean personasAtrapadas) {
+        this.personasAtrapadas = personasAtrapadas;
+    }
+
+    public boolean isPersonasHeridas() {
+        return personasHeridas;
+    }
+
+    public void setPersonasHeridas(boolean personasHeridas) {
+        this.personasHeridas = personasHeridas;
+    }
+
+    public boolean isPersonasFallecidas() {
+        return personasFallecidas;
+    }
+
+    public void setPersonasFallecidas(boolean personasFallecidas) {
+        this.personasFallecidas = personasFallecidas;
+    }
 }

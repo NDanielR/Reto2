@@ -15,7 +15,7 @@ public class Config {
     private int numeroBomberos;
 
     private Config(){
-        inicializarConfiguracion();
+        inicializarConfiguracionRapida();
     }
 
     public void inicializarConfiguracion() {
@@ -35,6 +35,16 @@ public class Config {
         this.vehiculosBomberos = scn.nextInt();
         System.out.println("ingresa el numero de bomberos:");
         this.numeroBomberos = scn.nextInt();
+    }
+
+    public void inicializarConfiguracionRapida() {
+        this.vehiculosPolicia = 15; // Valor predeterminado
+        this.numeroPolicias = 60; // Valor predeterminado
+        this.vehiculosAmbulancias = 15; // Valor predeterminado
+        this.numeroParamedico = 90; // Valor predeterminado
+        this.vehiculosBomberos = 15; // Valor predeterminado
+        this.numeroBomberos = 60; // Valor predeterminado
+        System.out.println("Configuración rápida inicializada con valores predeterminados.");
     }
 
     //metodo static para agregar la config de inicio

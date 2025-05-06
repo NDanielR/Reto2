@@ -27,4 +27,28 @@ public class Incendio implements InEmergencia {
         System.out.println("Ubicacion" + ubicacion);
         System.out.println("Personas atrapadas: " + personasAtrapadas);
     }
+
+    public String getUbicacion() {
+        return ubicacion;
+    }
+
+    public void setUbicacion(String ubicacion) {
+        this.ubicacion = ubicacion;
+    }
+
+    public String getDescripcion() {
+        return descripcion;
+    }
+
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
+    }
+
+    public boolean isPersonasAtrapadas() {
+        return personasAtrapadas;
+    }
+
+    public void setPersonasAtrapadas(boolean personasAtrapadas) {
+        this.personasAtrapadas = personasAtrapadas;
+    }
 }

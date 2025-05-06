@@ -1,5 +1,8 @@
 import emergencia.*;
 import emergencia.inter.InEmergencia;
+import prioridades.EmergenciaContexto;
+import prioridades.EstrategiaAccidenteTransito;
+import prioridades.EstrategiaRobo;
 //import util.ScannerSingleton;
 import util.Config;
 import util.Menu;
@@ -10,9 +13,14 @@ public class App {
 
         try {
             Config.getInstancia(); // Inicializa la configuración
-            Config.imprimirConfiguracion(Config.getInstancia()); // Imprime la configuración inicial
+            /*Config.imprimirConfiguracion(Config.getInstancia()); // Imprime la configuración inicial
             InEmergencia em1 = EmergenciaFactory.crearEmergencia(Menu.SeleccionEmergencia());
-            em1.verDatosEmergencia();
+            em1.verDatosEmergencia();*/
+            //Contexto contexto = new Contexto(new AntivirusAvanzado());
+		    //contexto.ejecutar();
+           
+            EmergenciaContexto ec1=new EmergenciaContexto(new EstrategiaAccidenteTransito());
+            ec1.prioridadAlta();
         } finally {
            // ScannerSingleton.close(); // Cierra el Scanner al final del programa
         }

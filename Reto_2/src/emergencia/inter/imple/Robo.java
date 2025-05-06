@@ -39,4 +39,60 @@ public class Robo implements InEmergencia {
         System.out.println("Personas heridas: " + personasHeridas);
         System.out.println("Personas fallecidas: " + personasFallecidas);
     }
+
+    public String getDescripcion() {
+        return descripcion;
+    }
+
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
+    }
+
+    public String getUbicacion() {
+        return ubicacion;
+    }
+
+    public void setUbicacion(String ubicacion) {
+        this.ubicacion = ubicacion;
+    }
+
+    public boolean isAtracoArmaFuego() {
+        return atracoArmaFuego;
+    }
+
+    public void setAtracoArmaFuego(boolean atracoArmaFuego) {
+        this.atracoArmaFuego = atracoArmaFuego;
+    }
+
+    public boolean isAtracoArmaBlanca() {
+        return atracoArmaBlanca;
+    }
+
+    public void setAtracoArmaBlanca(boolean atracoArmaBlanca) {
+        this.atracoArmaBlanca = atracoArmaBlanca;
+    }
+
+    public boolean isAtracoViolento() {
+        return atracoViolento;
+    }
+
+    public void setAtracoViolento(boolean atracoViolento) {
+        this.atracoViolento = atracoViolento;
+    }
+
+    public boolean isPersonasHeridas() {
+        return personasHeridas;
+    }
+
+    public void setPersonasHeridas(boolean personasHeridas) {
+        this.personasHeridas = personasHeridas;
+    }
+
+    public boolean isPersonasFallecidas() {
+        return personasFallecidas;
+    }
+
+    public void setPersonasFallecidas(boolean personasFallecidas) {
+        this.personasFallecidas = personasFallecidas;
+    }
 }

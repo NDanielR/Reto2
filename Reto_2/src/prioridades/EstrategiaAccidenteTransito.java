@@ -7,22 +7,33 @@ public class EstrategiaAccidenteTransito implements IEstrategia {
     @Override
     public void prioridadAlta() {
         Config solicitarUnidades = Config.getInstancia();
-        System.out.println("accidente de transito grave ");
-        solicitarUnidades.setNumeroParamedico(solicitarUnidades.getNumeroParamedico()-9);
-        System.out.println("se han solicitado 9 paramedicos para atender el accidente de transito grave");  
-        solicitarUnidades.setVehiculosAmbulancias(solicitarUnidades.getVehiculosAmbulancias()-3);
-        System.out.println("se han solicitado 3 ambulancias para atender el accidente de transito grave");
-    }
+        System.out.println("Accidente de tránsito grave");
+        solicitarUnidades.setNumeroPolicias(solicitarUnidades.getNumeroPolicias() - 3);
+        solicitarUnidades.setVehiculosPolicia(solicitarUnidades.getVehiculosPolicia() - 1);
+        solicitarUnidades.setVehiculosBomberos(solicitarUnidades.getVehiculosBomberos() - 1);
+        solicitarUnidades.setNumeroBomberos(solicitarUnidades.getNumeroBomberos() - 6);
+        }
 
     @Override
     public void prioridadMedia() {
-        System.out.println("accidente de transito medio");
-        
+        Config solicitarUnidades = Config.getInstancia();
+        System.out.println("Accidente de tránsito medio");
+
+
+        solicitarUnidades.setNumeroPolicias(solicitarUnidades.getNumeroPolicias() - 3);
+        solicitarUnidades.setVehiculosPolicia(solicitarUnidades.getVehiculosPolicia() - 1);
+        solicitarUnidades.setVehiculosBomberos(solicitarUnidades.getVehiculosBomberos() - 1);
+        solicitarUnidades.setNumeroBomberos(solicitarUnidades.getNumeroBomberos() - 6);
     }
 
     @Override
     public void prioridadBaja() {
-       System.out.println("accidente de transito suave");
-        
+        Config solicitarUnidades = Config.getInstancia();
+        System.out.println("Accidente de tránsito leve");
+
+      
+
+        solicitarUnidades.setNumeroPolicias(solicitarUnidades.getNumeroPolicias() - 1);
+        solicitarUnidades.setVehiculosPolicia(solicitarUnidades.getVehiculosPolicia() - 1);
     }
 }

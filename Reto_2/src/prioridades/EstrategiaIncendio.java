@@ -1,6 +1,5 @@
 package prioridades;
 
-import emergencia.EmergenciaFactory;
 import util.Config;
 
 public class EstrategiaIncendio implements IEstrategia {

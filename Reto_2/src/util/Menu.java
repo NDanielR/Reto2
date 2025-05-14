@@ -8,12 +8,13 @@ public class Menu {
         return Config.getInstancia();
     }
 
-    public void MenuPrincipal() {
+    public static void MenuPrincipal() {
         System.out.println("Bienvenidos al Sistema de Emergencias");
-        System.out.println("Seleccione la emergencia que presenta:");
-        System.out.println("1. Incendio");
-        System.out.println("2. Robo");
-        System.out.println("3. accidente de transito");
+        System.out.println("Seleccione la opcion que desea usar:");
+        System.out.println("1. Registrar emergencia");
+        System.out.println("2. Ver estado de recursos disponibles");
+        System.out.println("3. Atender una emergencia");
+        System.out.println("4. Mostrar estadisticas de atencion");
     }
 
     public static TipoEmergencia SeleccionEmergencia() {

@@ -11,6 +11,10 @@ public class Emergencia {
         this.ubicacion = ubicacion;
     }
 
+    public void guardarEmergencia(){
+
+    }
+
     public String getUbicacion() {
         return ubicacion;
     }

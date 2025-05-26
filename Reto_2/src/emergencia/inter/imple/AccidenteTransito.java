@@ -2,10 +2,8 @@ package emergencia.inter.imple;
 
 import emergencia.inter.InEmergencia;
 
-public class AccidenteTransito implements InEmergencia {
+public class AccidenteTransito extends Emergencia implements InEmergencia {
 
-    private String ubicacion;
-    private String descripcion;
     private boolean personasAtrapadas;
     private boolean personasHeridas;
     private boolean personasFallecidas;
@@ -13,8 +11,7 @@ public class AccidenteTransito implements InEmergencia {
 
     public AccidenteTransito(String ubicacion, String descripcion, boolean personasAtrapadas,
             boolean personasHeridas, boolean personasFallecidas) {
-        this.ubicacion = ubicacion;
-        this.descripcion = descripcion;
+        super(ubicacion, descripcion);
         this.personasAtrapadas = personasAtrapadas;
         this.personasHeridas = personasHeridas;
         this.personasFallecidas = personasFallecidas;
@@ -28,27 +25,11 @@ public class AccidenteTransito implements InEmergencia {
 
     @Override
     public void verDatosEmergencia() {
-        System.out.println("Atendiendo Accidente de transito: " + descripcion);
-        System.out.println("Ubicacion" + ubicacion);
+        System.out.println("Atendiendo Accidente de transito: " + super.getDescripcion());
+        System.out.println("Ubicacion" + super.getUbicacion());
         System.out.println("Personas atrapadas: " + personasAtrapadas);
         System.out.println("Personas heridas: " + personasHeridas);
         System.out.println("Personas fallecidas: " + personasFallecidas);
-    }
-
-    public String getUbicacion() {
-        return ubicacion;
-    }
-
-    public void setUbicacion(String ubicacion) {
-        this.ubicacion = ubicacion;
-    }
-
-    public String getDescripcion() {
-        return descripcion;
-    }
-
-    public void setDescripcion(String descripcion) {
-        this.descripcion = descripcion;
     }
 
     public boolean isPersonasAtrapadas() {

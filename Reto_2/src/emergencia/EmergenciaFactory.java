@@ -33,9 +33,10 @@ public class EmergenciaFactory {
                 throw new IllegalArgumentException("Tipo de emergencia no válido");
         }
 
+        System.out.println("Emergencia registrada");
         listaEmergenciasRegistradas.add(emergencia);
         return emergencia;
-    
+
     }
 
     private static Incendio crearIncendio(Scanner scn) {
@@ -66,17 +67,21 @@ public class EmergenciaFactory {
         String ubicacionRobo = scn.nextLine();
         System.out.println("Ingrese la descripcion del Robo: ");
         String descripcionRobo = scn.nextLine();
-        System.out.println("El robo fue con arma de fuego: ");
-        boolean atracoArmaFuego = scn.nextBoolean();
-        System.out.println("El robo fue con arma blanca: ");
-        boolean atracoArmaBlanca = scn.nextBoolean();
-        System.out.println("El robo fue violento: ");
-        boolean atracoViolento = scn.nextBoolean();
-        System.out.println("Hay personas heridas en el robo: ");
-        boolean personasHeridas = scn.nextBoolean();
-        System.out.println("Hay personas fallecidas en el robo: ");
-        boolean personasFallecidas = scn.nextBoolean();
-        return new Robo(ubicacionRobo, descripcionRobo, atracoArmaFuego, atracoArmaBlanca, atracoViolento, personasHeridas, personasFallecidas);
+
+        boolean atracoArmaFuego = false;
+        boolean atracoArmaBlanca = false;
+        boolean atracoViolento = false;
+        boolean personasHeridas = false;
+        boolean personasFallecidas = false;
+
+        atracoArmaFuego = leerBooleanConExcepcion(scn, "El robo fue con arma de fuego (true/false): ");
+        atracoArmaBlanca = leerBooleanConExcepcion(scn, "El robo fue con arma blanca (true/false): ");
+        atracoViolento = leerBooleanConExcepcion(scn, "El robo fue violento (true/false): ");
+        personasHeridas = leerBooleanConExcepcion(scn, "Hay personas heridas en el robo (true/false): ");
+        personasFallecidas = leerBooleanConExcepcion(scn, "Hay personas fallecidas en el robo (true/false): ");
+
+        return new Robo(ubicacionRobo, descripcionRobo, atracoArmaFuego, atracoArmaBlanca, atracoViolento,
+                personasHeridas, personasFallecidas);
     }
 
     private static AccidenteTransito crearAccidenteTransito(Scanner scn) {
@@ -84,16 +89,19 @@ public class EmergenciaFactory {
         String ubicacionAccidente = scn.nextLine();
         System.out.println("Ingrese la descripcion del Accidente de transito: ");
         String descripcionAccidente = scn.nextLine();
-        System.out.println("Hay personas atrapadas en el Accidente: ");
-        boolean personasAtrapadasAccidente = scn.nextBoolean();
-        System.out.println("Hay personas heridas en el Accidente: ");
-        boolean personasHeridasAccidente = scn.nextBoolean();
-        System.out.println("Hay personas fallecidas en el Accidente: ");
-        boolean personasFallecidasAccidente = scn.nextBoolean();
-        return new AccidenteTransito(ubicacionAccidente, descripcionAccidente, personasAtrapadasAccidente, personasHeridasAccidente, personasFallecidasAccidente);
+
+        boolean personasAtrapadasAccidente = leerBooleanConExcepcion(scn,
+                "Hay personas atrapadas en el Accidente (true/false): ");
+        boolean personasHeridasAccidente = leerBooleanConExcepcion(scn,
+                "Hay personas heridas en el Accidente (true/false): ");
+        boolean personasFallecidasAccidente = leerBooleanConExcepcion(scn,
+                "Hay personas fallecidas en el Accidente (true/false): ");
+
+        return new AccidenteTransito(ubicacionAccidente, descripcionAccidente, personasAtrapadasAccidente,
+                personasHeridasAccidente, personasFallecidasAccidente);
     }
-    
-       public static void imprimirEmergenciasRegistradas() {
+
+    public static void imprimirEmergenciasRegistradas() {
         if (listaEmergenciasRegistradas.isEmpty()) {
             System.out.println("No hay emergencias registradas.");
         } else {
@@ -101,6 +109,21 @@ public class EmergenciaFactory {
             for (InEmergencia emergencia : listaEmergenciasRegistradas) {
                 emergencia.verDatosEmergencia();
                 System.out.println("-----------------------------");
+            }
+        }
+    }
+
+    // Método auxiliar para leer booleanos con manejo de excepciones
+    private static boolean leerBooleanConExcepcion(Scanner scn, String mensaje) {
+        while (true) {
+            System.out.print(mensaje);
+            String entrada = scn.nextLine().trim().toLowerCase();
+            if (entrada.equals("true") || entrada.equals("si")) {
+                return true;
+            } else if (entrada.equals("false") || entrada.equals("no")) {
+                return false;
+            } else {
+                System.out.println("Entrada no válida. Por favor, ingrese 'true/false' o 'si/no'.");
             }
         }
     }

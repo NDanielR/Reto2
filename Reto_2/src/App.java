@@ -13,16 +13,18 @@ public class App {
 
         try {
             Config.getInstancia(); // Inicializa la configuración
-            Config.imprimirConfiguracion(Config.getInstancia()); // Imprime la configuración inicial
+            //Config.imprimirConfiguracion(Config.getInstancia()); // Imprime la configuración inicial
             
             Menu.MenuPrincipal();//menu de inicio
             
-            InEmergencia em1 = EmergenciaFactory.crearEmergencia(Menu.SeleccionEmergencia());//Crear Emergencia
-            em1.verDatosEmergencia();
-                       
-            EmergenciaContexto ec1=new EmergenciaContexto(new EstrategiaAccidenteTransito());
+            /*InEmergencia em1 = *///EmergenciaFactory.crearEmergencia(Menu.SeleccionEmergencia());//Crear Emergencia
+            //1em1.verDatosEmergencia();
+            
+            //EmergenciaFactory.imprimirEmergenciasRegistradas();
+
+            /*EmergenciaContexto ec1=new EmergenciaContexto(new EstrategiaAccidenteTransito());//estrategia en contruccion
             ec1.prioridadAlta();
-            Config.imprimirConfiguracion(Config.getInstancia());
+            Config.imprimirConfiguracion(Config.getInstancia());*/
 
         } finally {
            // ScannerSingleton.close(); // Cierra el Scanner al final del programa

@@ -1,7 +1,8 @@
 package emergencia;
 
 import java.util.Scanner;
-
+import java.util.List;
+import java.util.ArrayList;
 import emergencia.inter.InEmergencia;
 import emergencia.inter.imple.AccidenteTransito;
 import emergencia.inter.imple.Incendio;
@@ -11,21 +12,30 @@ import util.ScannerSingleton;
 
 public class EmergenciaFactory {
 
+    private static List<InEmergencia> listaEmergenciasRegistradas = new ArrayList<>();
+
     public static InEmergencia crearEmergencia(TipoEmergencia tipo) {
         Scanner scn = ScannerSingleton.getInstance();
+        InEmergencia emergencia;
         switch (tipo) {
             case Incendio:
-                return crearIncendio(scn);
+                emergencia = crearIncendio(scn);
+                break;
 
             case Robo:
-                return crearRobo(scn);
+                emergencia = crearRobo(scn);
+                break;
 
             case Accidente_Transito:
-                return crearAccidenteTransito(scn);
+                emergencia = crearAccidenteTransito(scn);
 
             default:
                 throw new IllegalArgumentException("Tipo de emergencia no válido");
         }
+
+        listaEmergenciasRegistradas.add(emergencia);
+        return emergencia;
+    
     }
 
     private static Incendio crearIncendio(Scanner scn) {
@@ -81,5 +91,17 @@ public class EmergenciaFactory {
         System.out.println("Hay personas fallecidas en el Accidente: ");
         boolean personasFallecidasAccidente = scn.nextBoolean();
         return new AccidenteTransito(ubicacionAccidente, descripcionAccidente, personasAtrapadasAccidente, personasHeridasAccidente, personasFallecidasAccidente);
-    }  
+    }
+    
+       public static void imprimirEmergenciasRegistradas() {
+        if (listaEmergenciasRegistradas.isEmpty()) {
+            System.out.println("No hay emergencias registradas.");
+        } else {
+            System.out.println("Emergencias registradas:");
+            for (InEmergencia emergencia : listaEmergenciasRegistradas) {
+                emergencia.verDatosEmergencia();
+                System.out.println("-----------------------------");
+            }
+        }
+    }
 }

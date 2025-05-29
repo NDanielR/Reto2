@@ -1,14 +1,7 @@
-import emergencia.*;
-import emergencia.inter.InEmergencia;
-import prioridades.EmergenciaContexto;
-import prioridades.EstrategiaAccidenteTransito;
-//import prioridades.EstrategiaRobo;
-//import util.ScannerSingleton;
 import util.Config;
 import util.Menu;
 
-public class App {
-    
+public class App {  
     public static void main(String[] args) {
 
         try {

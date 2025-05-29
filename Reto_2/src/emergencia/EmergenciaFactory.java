@@ -8,6 +8,7 @@ import emergencia.inter.imple.AccidenteTransito;
 import emergencia.inter.imple.Incendio;
 import emergencia.inter.imple.Robo;
 import emergencia.inter.imple.TipoEmergencia;
+import util.Menu;
 import util.ScannerSingleton;
 
 public class EmergenciaFactory {
@@ -28,9 +29,11 @@ public class EmergenciaFactory {
 
             case Accidente_Transito:
                 emergencia = crearAccidenteTransito(scn);
+                break;
 
             default:
                 throw new IllegalArgumentException("Tipo de emergencia no válido");
+                
         }
 
         System.out.println("Emergencia registrada");
@@ -40,6 +43,7 @@ public class EmergenciaFactory {
     }
 
     private static Incendio crearIncendio(Scanner scn) {
+        Menu.limpiarConsola();
         System.out.println("Ingrese la ubicacion del incendio: ");
         String ubicacion = scn.nextLine();
         System.out.println("Ingrese la descripcion del incendio: ");
@@ -102,13 +106,21 @@ public class EmergenciaFactory {
     }
 
     public static void imprimirEmergenciasRegistradas() {
+
+        int numeroEmergencia = 1;
         if (listaEmergenciasRegistradas.isEmpty()) {
             System.out.println("No hay emergencias registradas.");
+            System.out.println("-----------------------------");
+            System.out.println("");
         } else {
             System.out.println("Emergencias registradas:");
+            System.out.println("-----------------------------");
+            System.out.println("");
             for (InEmergencia emergencia : listaEmergenciasRegistradas) {
+                System.out.println("Emergencia # " + numeroEmergencia);
                 emergencia.verDatosEmergencia();
                 System.out.println("-----------------------------");
+                numeroEmergencia++;
             }
         }
     }
@@ -126,5 +138,9 @@ public class EmergenciaFactory {
                 System.out.println("Entrada no válida. Por favor, ingrese 'true/false' o 'si/no'.");
             }
         }
+    }
+
+    public static List<InEmergencia> getListaEmergenciasRegistradas() {
+        return listaEmergenciasRegistradas;
     }
 }

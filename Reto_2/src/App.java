@@ -1,5 +1,6 @@
 import util.Config;
 import util.Menu;
+import prioridades.*;
 import util.ScannerSingleton;
 
 public class App {  
@@ -10,11 +11,9 @@ public class App {
                         
             Menu.MenuPrincipal();//menu de inicio
                      
-            //EmergenciaFactory.imprimirEmergenciasRegistradas();
-
-            /*EmergenciaContexto ec1=new EmergenciaContexto(new EstrategiaAccidenteTransito());//estrategia en contruccion
-            ec1.prioridadAlta();
-            Config.imprimirConfiguracion(Config.getInstancia());*/
+            //EmergenciaContexto ec1=new EmergenciaContexto(new EstrategiaAccidenteTransito());//estrategia en contruccion
+            //ec1.prioridadAlta();
+            //Config.imprimirConfiguracion(Config.getInstancia());
 
         } finally {
             ScannerSingleton.close(); // Cierra el Scanner al final del programa

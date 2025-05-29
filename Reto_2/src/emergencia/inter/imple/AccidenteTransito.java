@@ -19,17 +19,22 @@ public class AccidenteTransito extends Emergencia implements InEmergencia {
     }
 
     @Override
-    public void registrarEmergencia() {
-
-    }
-
-    @Override
-    public void verDatosEmergencia() {
+    public void verLista() {
         System.out.println("Atendiendo Accidente de transito: " + super.getDescripcion());
         System.out.println("Ubicacion" + super.getUbicacion());
         System.out.println("Personas atrapadas: " + personasAtrapadas);
         System.out.println("Personas heridas: " + personasHeridas);
         System.out.println("Personas fallecidas: " + personasFallecidas);
+
+    }
+
+    @Override
+    public void verDatosEmergencia() {
+        System.out.print("Atendiendo Accidente de transito ");
+        System.out.print("Ubicacion" + super.getUbicacion());
+        System.out.print(" Personas atrapadas: " + personasAtrapadas);
+        System.out.print(" Personas heridas: " + personasHeridas);
+        System.out.print(" Personas fallecidas: " + personasFallecidas);
     }
 
     public boolean isPersonasAtrapadas() {

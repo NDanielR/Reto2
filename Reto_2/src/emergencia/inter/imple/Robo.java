@@ -23,13 +23,20 @@ public class Robo extends Emergencia implements InEmergencia {
     }
 
     @Override
-    public void registrarEmergencia() {
+    public void verLista() {
+        System.out.print("Atendiendo robo ");
+        System.out.print("Ubicacion: " + super.getUbicacion());
+        System.out.print(" Robo con arma de fuego: " + atracoArmaFuego);
+        System.out.print(" Robo con arma blanca: " + atracoArmaBlanca);
+        System.out.print(" Robo violento: " + atracoViolento);
+        System.out.print(" Personas heridas: " + personasHeridas);
+        System.out.print(" Personas fallecidas: " + personasFallecidas);
 
     }
 
     public void verDatosEmergencia() {
         System.out.println("Atendiendo robo: " + super.getDescripcion());
-        System.out.println("Ubicacion" + super.getUbicacion());
+        System.out.println("Ubicacion: " + super.getUbicacion());
         System.out.println("Robo con arma de fuego: " + atracoArmaFuego);
         System.out.println("Robo con arma blanca: " + atracoArmaBlanca);
         System.out.println("Robo violento: " + atracoViolento);

@@ -14,14 +14,16 @@ public class Incendio extends Emergencia implements InEmergencia {
     }
 
     @Override
-    public void registrarEmergencia() {
-      
+    public void verLista() {
+        System.out.print("Atendiendo incendio ");
+        System.out.print("Ubicacion: " + super.getUbicacion());
+        System.out.print(" Personas atrapadas: " + personasAtrapadas);
     }
 
     @Override
     public void verDatosEmergencia() {
         System.out.println("Atendiendo incendio: " + super.getDescripcion());
-        System.out.println("Ubicacion" + super.getUbicacion());
+        System.out.println("Ubicacion: " + super.getUbicacion());
         System.out.println("Personas atrapadas: " + personasAtrapadas);
     }
 

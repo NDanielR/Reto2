@@ -1,6 +1,5 @@
 import util.Config;
 import util.Menu;
-import prioridades.*;
 import util.ScannerSingleton;
 
 public class App {  

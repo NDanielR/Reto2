@@ -1,6 +1,5 @@
 package util;
 import java.util.List;
-import java.util.ArrayList;
 import java.util.Scanner;
 
 import emergencia.EmergenciaFactory;

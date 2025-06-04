@@ -6,8 +6,9 @@ public class App {
     public static void main(String[] args) {
 
         try {
-            Config.getInstancia(); // Inicializa la configuración
-                        
+           
+            
+            Config.getInstancia(); // Inicializa la configuración         
             Menu.MenuPrincipal();//menu de inicio
                      
             //EmergenciaContexto ec1=new EmergenciaContexto(new EstrategiaAccidenteTransito());//estrategia en contruccion

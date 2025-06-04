@@ -51,7 +51,10 @@ public class Config {
     public static Config getInstancia() {
         if (configuracion == null) {
             configuracion = new Config();
-        }   
+        }  
+        
+        Menu.esperarEnter();  
+        
         return configuracion;
     }
 

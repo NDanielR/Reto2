@@ -17,6 +17,7 @@ public class Menu {
         Scanner scn = ScannerSingleton.getInstance();
         int opcion = 0;
         while (true) {
+            limpiarConsola();
             System.out.println("Bienvenidos al Sistema de Emergencias");
             System.out.println("Seleccione la opcion que desea usar:");
             System.out.println("1. Registrar emergencia");

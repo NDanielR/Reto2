@@ -38,6 +38,8 @@ public class EmergenciaFactory {
 
         System.out.println("Emergencia registrada");
         listaEmergenciasRegistradas.add(emergencia);
+        Menu.esperarEnter();
+        Menu.limpiarConsola();  
         return emergencia;
 
     }
@@ -107,6 +109,7 @@ public class EmergenciaFactory {
 
     public static void imprimirEmergenciasRegistradas() {
 
+        Menu.limpiarConsola();
         int numeroEmergencia = 1;
         if (listaEmergenciasRegistradas.isEmpty()) {
             System.out.println("No hay emergencias registradas.");
@@ -123,6 +126,8 @@ public class EmergenciaFactory {
                 numeroEmergencia++;
             }
         }
+
+        Menu.esperarEnter(); 
     }
 
     // Método auxiliar para leer booleanos con manejo de excepciones

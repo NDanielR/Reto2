@@ -44,9 +44,11 @@ public class Menu {
                         break;
                     default:
                         System.out.println("Opción inválida. Intente nuevamente.\n");
+                        esperarEnter();
                 }
             } catch (NumberFormatException e) {
                 System.out.println("Entrada no válida. Ingrese un número del 1 al 5.\n");
+                esperarEnter();
             }
         }
     }

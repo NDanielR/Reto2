@@ -88,24 +88,34 @@ public class Menu {
 
     private static void seleccionEmergenciaAtender(List<InEmergencia> listaEmergencias){
 
-        int numeroEmergencia = 1;
-
-          if (listaEmergencias.isEmpty()) {
+        Scanner scn = ScannerSingleton.getInstance();
+        if (listaEmergencias == null || listaEmergencias.isEmpty()) {
             limpiarConsola();
             System.out.println("No hay emergencias registradas.");
-            System.out.println("-----------------------------");
-            System.out.println("");
             esperarEnter();
-        } else {
-            limpiarConsola();
-            System.out.println("Selecciona la emergencia que requiere atender");
-            for (InEmergencia emergencia : listaEmergencias) {
-                System.out.print(numeroEmergencia);
-                emergencia.verLista();
-                System.out.println("-----------------------------");
-                numeroEmergencia++;
+            return;
+        }
+        while (true) {
+            EmergenciaFactory.imprimirEmergenciasRegistradas();
+            System.out.println("Seleccione el numero de la emergencia que desea atender");
+            try {
+                int emergenciaSeleccionada = Integer.parseInt(scn.nextLine());
+                if (emergenciaSeleccionada < 1 || emergenciaSeleccionada > listaEmergencias.size()) {
+                    throw new IndexOutOfBoundsException();
+                }
+                InEmergencia emergencia = listaEmergencias.get(emergenciaSeleccionada - 1);
+                // Aquí puedes trabajar con el objeto emergencia seleccionado
+                System.out.println("Atendiendo emergencia seleccionada:");
+                emergencia.verDatosEmergencia();
+                esperarEnter();
+                break;
+            } catch (NumberFormatException e) {
+                System.out.println("Entrada no válida. Ingrese un número válido de la lista.");
+                esperarEnter();
+            } catch (IndexOutOfBoundsException e) {
+                System.out.println("La emergencia no existe. Seleccione una opción de la lista.");
+                esperarEnter();
             }
-            esperarEnter();
         }
     }
 
